@@ -9,12 +9,17 @@
 <body>
 
   <header>
-    <h1>Portal de Noticias</h1>
+    <h1><a href="index.html">Portal de Noticias</a></h1>
+    <div class="header-acciones">
+      <span id="precio-dolar">Dólar blue: <span id="valor-dolar">Cargando...</span></span>
+      <button id="dark-mode-btn" class="btn-oscuro">Modo oscuro</button>
+      <div id="auth-links"></div>
+    </div>
   </header>
 
   <main>
-    <h2>Últimas noticias</h2>
-    <div>
+    <h2 class="seccion-titulo">Últimas noticias</h2>
+    <div id="noticias-container" class="grilla-noticias">
       <p>Cargando noticias...</p>
     </div>
   </main>
