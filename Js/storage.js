@@ -46,7 +46,7 @@ var NOTICIAS_DEFAULT = [
 // Devuelve el array de noticias desde localStorage.
 // Si es la primera vez (localStorage vacio), guarda y devuelve las noticias por defecto.
 function obtenerNoticias() {
-  var guardadas = localStorage.getItem('noticias');
+  const guardadas = localStorage.getItem('noticias');
   if (guardadas !== null) {
     return JSON.parse(guardadas);
   }
@@ -61,8 +61,8 @@ function guardarNoticias(noticias) {
 
 // Agrega una noticia nueva al principio del array
 function agregarNoticia(titulo, descripcion, imagen) {
-  var noticias = obtenerNoticias();
-  var nueva = {
+  const noticias = obtenerNoticias();
+  const nueva = {
     id: Date.now(),
     titulo: titulo,
     descripcion: descripcion,
@@ -74,8 +74,8 @@ function agregarNoticia(titulo, descripcion, imagen) {
 
 // Elimina la noticia con ese ID
 function eliminarNoticia(id) {
-  var noticias = obtenerNoticias();
-  var actualizadas = noticias.filter(function(n) {
+  const noticias = obtenerNoticias();
+  const actualizadas = noticias.filter(function(n) {
     return n.id !== id;
   });
   guardarNoticias(actualizadas);
@@ -83,8 +83,8 @@ function eliminarNoticia(id) {
 
 // Reemplaza los datos de una noticia existente
 function modificarNoticia(id, titulo, descripcion, imagen) {
-  var noticias = obtenerNoticias();
-  var index = noticias.findIndex(function(n) {
+  const noticias = obtenerNoticias();
+  const index = noticias.findIndex(function(n) {
     return n.id === id;
   });
   if (index !== -1) {
@@ -95,7 +95,7 @@ function modificarNoticia(id, titulo, descripcion, imagen) {
 
 // Devuelve una noticia por su ID
 function buscarNoticiaPorId(id) {
-  var noticias = obtenerNoticias();
+  const noticias = obtenerNoticias();
   return noticias.find(function(n) {
     return n.id === id;
   }) || null;
