@@ -7,19 +7,62 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+<header>
 
-  <header>
-    <h1><a href="index.html">Portal de Noticias</a></h1>
+    <div class="header-content">
+
+      <h1><a href="index.html">Portal de Noticias</a></h1>
+
+      <div class="header-actions">
+
+        <button id="dark-mode-btn">Dark Mode</button>
+
+      </div>
+
+    </div>
+
   </header>
 
   <main>
-    <h2>Iniciar sesión</h2>
-    <p>Formulario de login (próximamente)</p>
+    <div class="login-wrapper">
+      <div class="login-box">
+        <h2> Iniciar sesión</h2>
+        <p class="subtitle">Acceso exclusivo para administradores</p>
+        <div id="error-msg" class="error-message"></div>
+        <div id="success-msg" class="success-message"></div>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" required autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+
+            <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password" />
+
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+
+            Iniciar sesión
+
+          </button>
+
+        </form>
+
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+
+      </div>
+
+    </div>
+
   </main>
 
   <footer>
-    <p>Portal de Noticias — Taller de Internet 1 © 2026</p>
-  </footer>
 
+    <p>Portal de Noticias — Taller de Internet 1 &copy; 2026</p>
+  </footer>
+  <script src="js/storage.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
