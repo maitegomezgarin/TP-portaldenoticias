@@ -1,4 +1,4 @@
-javascript// Logica del panel de administracion
+// Logica del panel de administracion
 
 document.addEventListener('DOMContentLoaded', function() {
 
