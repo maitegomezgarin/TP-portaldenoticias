@@ -20,7 +20,34 @@
 
   <main>
     <h2 class="admin-titulo">Panel de Administración</h2>
+<div class="formulario-noticia">
+  <h3 id="form-titulo">Agregar noticia</h3>
 
+  <input type="hidden" id="edit-id" value="" />
+
+  <div id="form-error" class="msg-error"></div>
+  <div id="form-exito" class="msg-exito"></div>
+
+  <div class="campo">
+    <label for="input-titulo">Titulo</label>
+    <input type="text" id="input-titulo" placeholder="Titulo de la noticia" />
+  </div>
+
+  <div class="campo">
+    <label for="input-descripcion">Descripcion</label>
+    <textarea id="input-descripcion" placeholder="Descripcion de la noticia..."></textarea>
+  </div>
+
+  <div class="campo">
+    <label for="input-imagen">URL de la imagen</label>
+    <input type="url" id="input-imagen" placeholder="https://ejemplo.com/imagen.jpg" />
+  </div>
+
+  <div class="form-acciones">
+    <button class="btn-azul" onclick="guardarNoticia()">Guardar</button>
+    <button class="btn-gris" id="btn-cancelar" style="display:none;" onclick="cancelarEdicion()">Cancelar</button>
+  </div>
+</div>
     <div class="lista-noticias">
       <h3>Noticias existentes</h3>
       <div id="admin-noticias"></div>
