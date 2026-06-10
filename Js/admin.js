@@ -1,4 +1,4 @@
-// Logica del panel de administracion
+javascript// Logica del panel de administracion
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -44,14 +44,15 @@ function mostrarNoticias() {
     html += '</div>';
   }
   contenedor.innerHTML = html;
-}
 
+}
 
 // Guarda noticia nueva o actualiza una existente
 function guardarNoticia() {
   const titulo = document.getElementById('input-titulo').value.trim();
   const descripcion = document.getElementById('input-descripcion').value.trim();
   const imagen = document.getElementById('input-imagen').value.trim();
+  const editId = document.getElementById('edit-id').value;
   const msgError = document.getElementById('form-error');
   const msgExito = document.getElementById('form-exito');
 
@@ -64,8 +65,13 @@ function guardarNoticia() {
     return;
   }
 
-  agregarNoticia(titulo, descripcion, imagen);
-  msgExito.textContent = 'Noticia agregada.';
+  if (editId) {
+    modificarNoticia(Number(editId), titulo, descripcion, imagen);
+    msgExito.textContent = 'Noticia actualizada correctamente.';
+  } else {
+    agregarNoticia(titulo, descripcion, imagen);
+    msgExito.textContent = 'Noticia agregada.';
+  }
 
   msgExito.style.display = 'block';
   limpiarFormulario();
@@ -74,6 +80,32 @@ function guardarNoticia() {
   setTimeout(function() {
     msgExito.style.display = 'none';
   }, 3000);
+
+}
+
+
+// Carga los datos de la noticia en el formulario para editarla
+function iniciarEdicion(id) {
+  const noticia = buscarNoticiaPorId(id);
+  if (!noticia) return;
+
+  document.getElementById('edit-id').value = noticia.id;
+  document.getElementById('input-titulo').value = noticia.titulo;
+  document.getElementById('input-descripcion').value = noticia.descripcion;
+  document.getElementById('input-imagen').value = noticia.imagen;
+
+  document.getElementById('form-titulo').textContent = 'Editar noticia';
+  document.getElementById('btn-cancelar').style.display = 'inline-block';
+
+  document.querySelector('.formulario-noticia').scrollIntoView({ behavior: 'smooth' });
+
+}
+
+function cancelarEdicion() {
+  limpiarFormulario();
+  document.getElementById('form-error').style.display = 'none';
+  document.getElementById('form-exito').style.display = 'none';
+
 }
 
 function limpiarFormulario() {
@@ -81,4 +113,7 @@ function limpiarFormulario() {
   document.getElementById('input-titulo').value = '';
   document.getElementById('input-descripcion').value = '';
   document.getElementById('input-imagen').value = '';
+  document.getElementById('form-titulo').textContent = 'Agregar noticia';
+  document.getElementById('btn-cancelar').style.display = 'none';
+
 }
