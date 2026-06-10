@@ -19,11 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-
 // Muestra la lista de noticias existentes
 function mostrarNoticias() {
-  var contenedor = document.getElementById('admin-noticias');
-  var noticias = obtenerNoticias();
+  const  contenedor = document.getElementById('admin-noticias');
+  const  noticias = obtenerNoticias();
 
   if (noticias.length === 0) {
     contenedor.innerHTML = '<p>No hay noticias. Agregá una.</p>';
@@ -31,9 +30,9 @@ function mostrarNoticias() {
   }
 
 
-  var html = '';
-  for (var i = 0; i < noticias.length; i++) {
-    var n = noticias[i];
+  let html = '';
+  for (let i = 0; i < noticias.length; i++) {
+    const n = noticias[i];
     html += '<div class="item-noticia" id="item-' + n.id + '">';
     html += '<img src="' + n.imagen + '" alt="' + n.titulo + '" onerror="this.src=\'https://placehold.co/70x50?text=?\'">';
     html += '<div class="info">';
@@ -43,4 +42,40 @@ function mostrarNoticias() {
     html += '</div>';
   }
   contenedor.innerHTML = html;
+}
+function guardarNoticia() {
+  
+  const titulo = document.getElementById('input-titulo').value.trim();
+  const descripcion = document.getElementById('input-descripcion').value.trim();
+  const imagen = document.getElementById('input-imagen').value.trim();
+  const editId = document.getElementById('edit-id').value;
+  const msgError = document.getElementById('form-error');
+  const msgExito = document.getElementById('form-exito');
+
+  msgError.style.display = 'none';
+  msgExito.style.display = 'none';
+
+  if (!titulo || !descripcion || !imagen) {
+    msgError.textContent = 'Todos los campos son obligatorios.';
+    msgError.style.display = 'block';
+    return;
+  }
+
+  agregarNoticia(titulo, descripcion, imagen);
+  msgExito.textContent = 'Noticia agregada.';
+
+  msgExito.style.display = 'block';
+  limpiarFormulario();
+  mostrarNoticias();
+
+  setTimeout(function() {
+    msgExito.style.display = 'none';
+  }, 3000);
+}
+
+function limpiarFormulario() {
+  document.getElementById('edit-id').value = '';
+  document.getElementById('input-titulo').value = '';
+  document.getElementById('input-descripcion').value = '';
+  document.getElementById('input-imagen').value = '';
 }
