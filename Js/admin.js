@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!estaLogueado()) {
     window.location.href = 'login.html';
     return;
-    
   }
 
   document.getElementById('btn-logout').addEventListener('click', function(e) {
@@ -19,16 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+
 // Muestra la lista de noticias existentes
 function mostrarNoticias() {
-  const  contenedor = document.getElementById('admin-noticias');
-  const  noticias = obtenerNoticias();
+  const contenedor = document.getElementById('admin-noticias');
+  const noticias = obtenerNoticias();
 
   if (noticias.length === 0) {
     contenedor.innerHTML = '<p>No hay noticias. Agregá una.</p>';
     return;
   }
-
 
   let html = '';
   for (let i = 0; i < noticias.length; i++) {
@@ -39,16 +38,20 @@ function mostrarNoticias() {
     html += '<h4>' + n.titulo + '</h4>';
     html += '<p>' + n.descripcion + '</p>';
     html += '</div>';
+    html += '<div class="item-acciones">';
+    html += '<button class="btn-azul btn-chico" onclick="iniciarEdicion(' + n.id + ')">Editar</button>';
+    html += '</div>';
     html += '</div>';
   }
   contenedor.innerHTML = html;
 }
+
+
+// Guarda noticia nueva o actualiza una existente
 function guardarNoticia() {
-  
   const titulo = document.getElementById('input-titulo').value.trim();
   const descripcion = document.getElementById('input-descripcion').value.trim();
   const imagen = document.getElementById('input-imagen').value.trim();
-  const editId = document.getElementById('edit-id').value;
   const msgError = document.getElementById('form-error');
   const msgExito = document.getElementById('form-exito');
 
