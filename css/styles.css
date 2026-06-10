@@ -343,8 +343,7 @@ footer {
   font-size: 0.82rem;
 }
 
-Faltan estas clases en el styles.css. Agregá al final del archivo:
-css/*FORMULARIO NOTICIA ADMIN*/
+/*FORMULARIO NOTICIA ADMIN*/
 
 .formulario-noticia {
   background-color: white;
