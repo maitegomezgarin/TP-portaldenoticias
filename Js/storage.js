@@ -100,4 +100,24 @@ function buscarNoticiaPorId(id) {
     return n.id === id;
   }) || null;
 }
+// Funciones de autenticación 
+function estaLogueado() {
+
+  if (!sessionStorage.getItem('sesionActiva')) {
+    localStorage.removeItem('tokenAuth');
+    return false;
+  }
+  return !!localStorage.getItem('tokenAuth');
+
+}
+function iniciarSesion(token) {
+  localStorage.setItem('tokenAuth', token);
+  sessionStorage.setItem('sesionActiva', '1');
+
+}
+
+function cerrarSesion() {
+  localStorage.removeItem('tokenAuth');
+  sessionStorage.removeItem('sesionActiva');
+}
 
