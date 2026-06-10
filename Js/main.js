@@ -2,6 +2,9 @@
 // Logica de la pagina de inicio (index.html)
 
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // Mostrar link de login o admin segun estado de sesion
+  mostrarLinkHeader();
 
   // Mostrar las noticias guardadas en localStorage
   mostrarNoticias();
@@ -11,6 +14,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+
+// Muestra Iniciar sesion o Panel Admin/ Cerrar sesion en el header
+function mostrarLinkHeader() {
+  var contenedor = document.getElementById('auth-links');
+
+  if (estaLogueado()) {
+    contenedor.innerHTML = '<a href="admin.html">Panel Admin</a> | <a href="#" id="btn-logout">Cerrar sesión</a>';
+    document.getElementById('btn-logout').addEventListener('click', function(e) {
+      e.preventDefault();
+      cerrarSesion();
+      window.location.reload();
+    });
+  } else {
+    contenedor.innerHTML = '<a href="login.html">Iniciar sesión</a>';
+  }
+}
 
 // Genera y muestra las tarjetas de noticias
 function mostrarNoticias() {
