@@ -40,6 +40,7 @@ function mostrarNoticias() {
     html += '</div>';
     html += '<div class="item-acciones">';
     html += '<button class="btn-azul btn-chico" onclick="iniciarEdicion(' + n.id + ')">Editar</button>';
+    html += '<button class="btn-rojo btn-chico" onclick="confirmarEliminar(' + n.id + ')">Eliminar</button>';
     html += '</div>';
     html += '</div>';
   }
@@ -116,4 +117,12 @@ function limpiarFormulario() {
   document.getElementById('form-titulo').textContent = 'Agregar noticia';
   document.getElementById('btn-cancelar').style.display = 'none';
 
+}
+
+function confirmarEliminar (id) {
+  const ok = window.confirm('¿Querés eliminar esta noticia?');
+  if (ok) {
+    eliminarNoticia(id);
+    mostrarNoticias();
+  }
 }
