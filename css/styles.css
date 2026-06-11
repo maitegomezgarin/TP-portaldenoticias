@@ -419,3 +419,57 @@ footer {
   margin-bottom: 14px;
   display: none;
 }
+
+/* DARK MODE*/
+
+body.dark {
+  background-color: #111;
+  color: #ddd;
+}
+
+body.dark header {
+  background-color: #000;
+}
+
+body.dark .noticia-card {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark .noticia-card-cuerpo p {
+  color: #aaa;
+}
+
+body.dark .login-caja {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark .campo input,
+body.dark .campo textarea {
+  background-color: #2a2a2a;
+  color: #ddd;
+  border-color: #444;
+}
+
+body.dark .formulario-noticia {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark .lista-noticias {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+body.dark .item-noticia {
+  border-color: #2a2a2a;
+}
+
+body.dark .item-noticia .info p {
+  color: #888;
+}
+
+body.dark footer {
+  background-color: #000;
+}
