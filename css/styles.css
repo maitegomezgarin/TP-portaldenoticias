@@ -473,3 +473,16 @@ body.dark .item-noticia .info p {
 body.dark footer {
   background-color: #000;
 }
+
+/*RESPONSIVE*/
+
+@media (max-width: 600px) {
+  .grilla-noticias {
+    grid-template-columns: 1fr;
+  }
+
+  .item-noticia {
+    flex-wrap: wrap;
+  }
+}
+
