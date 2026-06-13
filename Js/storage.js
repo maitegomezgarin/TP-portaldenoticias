@@ -121,3 +121,19 @@ function cerrarSesion() {
   sessionStorage.removeItem('sesionActiva');
 }
 
+// DARK MODE
+function obtenerModo() {
+  return localStorage.getItem('darkMode') || 'light';
+}
+
+function guardarModo(modo) {
+  localStorage.setItem('darkMode', modo);
+}
+
+function aplicarModo(modo) {
+  if (modo === 'dark') {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
+}
