@@ -238,7 +238,7 @@ footer {
   width: 100%;
 }
 
-.back-link {
+.link-volver {
   display: inline-block;
   margin-top: 14px;
   font-size: 0.9rem;
@@ -246,10 +246,9 @@ footer {
   text-decoration: none;
 }
 
-.back-link:hover {
+.link-volver:hover {
   text-decoration: underline;
 }
-
 .error-message {
   background-color: #fde;
   color: #c0392b;
