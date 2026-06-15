@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Traer la cotizacion del dolar desde la API
   cargarDolar();
-
+// Boton de dark mode
+  document.getElementById('dark-mode-btn').addEventListener('click', toggleDarkMode);
 });
 
 
