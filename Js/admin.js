@@ -7,7 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     window.location.href = 'login.html';
     return;
   }
+//Boton modo dark mode 
+  aplicarModo(obtenerModo());
+  actualizarBotonModo();
 
+  document.getElementById('dark-mode-btn').addEventListener('click', toggleDarkMode);
+  
   document.getElementById('btn-logout').addEventListener('click', function(e) {
     e.preventDefault();
     cerrarSesion();

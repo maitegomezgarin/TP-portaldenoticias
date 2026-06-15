@@ -2,7 +2,10 @@
 // Logica de la pagina de inicio (index.html)
 
 document.addEventListener('DOMContentLoaded', function() {
-  
+  // Aplicar el modo guardado y actualizar el boton
+  aplicarModo(obtenerModo());
+  actualizarBotonModo();
+
   // Mostrar link de login o admin segun estado de sesion
   mostrarLinkHeader();
 
@@ -11,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Traer la cotizacion del dolar desde la API
   cargarDolar();
-
+// Boton de dark mode
+  document.getElementById('dark-mode-btn').addEventListener('click', toggleDarkMode);
 });
 
 
