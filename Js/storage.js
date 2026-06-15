@@ -137,3 +137,18 @@ function aplicarModo(modo) {
     document.body.classList.remove('dark');
   }
 }
+// Alterna el modo y actualiza el boton
+function toggleDarkMode() {
+  var modoActual = obtenerModo();
+  var nuevoModo = modoActual === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('darkMode', nuevoModo);
+  aplicarModo(nuevoModo);
+  actualizarBotonModo();
+}
+
+// Cambia el texto del boton segun el modo
+function actualizarBotonModo() {
+  var btn = document.getElementById('dark-mode-btn');
+  var modo = obtenerModo();
+  btn.textContent = modo === 'dark' ? 'Modo claro' : 'Modo oscuro';
+}
