@@ -2,7 +2,10 @@
 // Logica de la pagina de inicio (index.html)
 
 document.addEventListener('DOMContentLoaded', function() {
-  
+  // Aplicar el modo guardado y actualizar el boton
+  aplicarModo(obtenerModo());
+  actualizarBotonModo();
+
   // Mostrar link de login o admin segun estado de sesion
   mostrarLinkHeader();
 
