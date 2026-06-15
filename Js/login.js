@@ -22,16 +22,17 @@ async function manejarLogin(event) {
 
   const password = document.getElementById('password').value;
 
-  const submitBtn = document.getElementById('submit-btn');
+  const btnEnviar = document.getElementById('btn-enviar');
 
-  const errorMsg = document.getElementById('error-msg');
+  const msgError = document.getElementById('msg-error');
 
-  const successMsg = document.getElementById('success-msg');
+  const msgExito = document.getElementById('msg-exito');
 
-  errorMsg.style.display = 'none';
-  successMsg.style.display = 'none';
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Iniciando sesión...';
+  msgError.style.display = 'none';
+  msgExito.style.display = 'none';
+
+  btnEnviar.disabled = true;
+  btnEnviar.textContent = 'Iniciando sesión...';
 
   try {
 
@@ -55,9 +56,8 @@ async function manejarLogin(event) {
 
     }
     iniciarSesion(datos.token);
-    successMsg.textContent = `¡Bienvenido, ${datos.firstName || username}! Redirigiendo...`;
-
-    successMsg.style.display = 'block';
+    msgExito.textContent = `¡Bienvenido, ${datos.firstName || username}! Redirigiendo...`;
+    msgExito.style.display = 'block';
 
     setTimeout(function () {
       window.location.href = 'admin.html';
@@ -68,12 +68,13 @@ async function manejarLogin(event) {
 
     console.error('Error en el login:', error);
 
-    errorMsg.textContent = error.message === 'Failed to fetch'
+    msgError.textContent = error.message === 'Failed to fetch'
 
       ? 'Error de conexión. Verificá tu acceso a internet.'
       : 'Usuario o contraseña incorrectos.';
-    errorMsg.style.display = 'block';
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Iniciar sesión';
+    msgError.style.display = 'block';
+
+    btnEnviar.disabled = false;
+    btnEnviar.textContent = 'Iniciar sesión';
   }
 }
