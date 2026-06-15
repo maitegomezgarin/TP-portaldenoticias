@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+  aplicarModo(obtenerModo());
+  actualizarBotonModo();
   // Si ya está logueado, redirigir al panel admin
 
   if (estaLogueado()) {
@@ -11,9 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Evento del formulario
-
   document.getElementById('login-form').addEventListener('submit', manejarLogin);
-
+ document.getElementById('dark-mode-btn').addEventListener('click', toggleDarkMode);
 });
 
 async function manejarLogin(event) {
