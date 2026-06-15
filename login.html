@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión — Portal de Noticias</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Portal de Noticias</a></h1>
+    <div class="header-acciones">
+      <button id="dark-mode-btn" class="btn-oscuro">Modo oscuro</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="login-contenedor">
+      <div class="login-caja">
+        <h2>Iniciar sesión</h2>
+
+        <div id="msg-error" class="msg-error"></div>
+        <div id="msg-exito" class="msg-exito"></div>
+
+        <form id="login-form">
+          <div class="campo">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" placeholder="emilys" required />
+          </div>
+
+          <div class="campo">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" placeholder="********" required />
+          </div>
+
+          <button type="submit" id="btn-enviar" class="btn-azul btn-ancho">
+            Iniciar sesión
+          </button>
+        </form>
+
+        <a href="index.html" class="link-volver">← Volver al inicio</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Portal de Noticias - Universidad Austral LCD  - Taller de Internet 1 2026</p>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal de Noticias</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <h1>hola mundo</h1>
+
+  <header>
+    <h1><a href="index.html">Portal de Noticias</a></h1>
+    <div class="header-acciones">
+      <span id="precio-dolar">Dólar blue: <span id="valor-dolar">Cargando...</span></span>
+      <button id="dark-mode-btn" class="btn-oscuro">Modo oscuro</button>
+      <div id="auth-links"></div>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="seccion-titulo">Últimas noticias</h2>
+    <div id="noticias-container" class="grilla-noticias">
+      <p>Cargando noticias...</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Portal de Noticias — Taller de Internet 1 © 2026</p>
+  </footer>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
